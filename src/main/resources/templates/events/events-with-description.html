@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
-<body class="container">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Skoobop</title>
+</head>
+<body>
 
-<header ></header>
-
-<h1>All Events</h1>
+<h1>Events With Description!</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
 
@@ -14,18 +15,13 @@
     <thead>
     <tr>
         <th>Name</th>
-        <th>Description</th>
-        <th>Address</th>
     </tr>
     </thead>
     <tr th:each="event : ${events}">
-        <td th:text="${event.key}"></td>
-        <td th:text="${event.value}"></td>
-        <td th:replace="fragments :: address">Default Address</td>
+        <td th:text="${event}">Default text</td>
+        <td th:text="${}">Default description</td>
     </tr>
 </table>
-
-
 
 </body>
 </html>
