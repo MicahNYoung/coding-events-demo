@@ -5,11 +5,23 @@
 
 <header th:replace="fragments :: header"></header>
 
-<ul>
-    <th:block th:each="event : ${events}">
-        <li th:text="${event.nameg}"></li>
-    </th:block>
-</ul>
+<!--<ul>-->
+<!--    <th:block th:each="event : ${events}">-->
+<!--        <li th:text="${event.name}"></li>-->
+<!--    </th:block>-->
+<!--</ul>-->
 
+<p th:unless="${events} and ${events.size()}">No events!</p>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+
+    </tr>
+    </thead>
+    <tr th:each="event : ${events}">
+        <td th:text="${event.name}"></td>
+    </tr>
+</table>
 </body>
 </html>
