@@ -1,14 +1,7 @@
 body {
-<<<<<<< HEAD
   font-size: 18px;
 }
 
 .error{
     color: red;
-=======
-  font-size: 14px;
-}
-.error {
-  color: red;
->>>>>>> origin/persistent-controller
 }

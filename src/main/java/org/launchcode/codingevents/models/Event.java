@@ -1,77 +1,53 @@
 package org.launchcode.codingevents.models;
 
-<<<<<<< HEAD
-=======
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
->>>>>>> origin/persistent-controller
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.Objects;
 
-<<<<<<< HEAD
-public class Event {
-    private int id;
-    private static int nextId = 1;
-
-    @NotBlank(message = "Name is required")
-    @Size(min= 3, max = 50, message = "Name must be between 3 and 50 characters.")
-=======
-/**
- * Created by Chris Bay
- */
 @Entity
-public class Event {
 
+public class Event {
     @Id
     @GeneratedValue
     private int id;
 
     @NotBlank(message = "Name is required")
-    @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
->>>>>>> origin/persistent-controller
+    @Size(min= 3, max = 50, message = "Name must be between 3 and 50 characters.")
     private String name;
 
     @Size(max = 500, message = "Description too long!")
     private String description;
-<<<<<<< HEAD
     @NotBlank
     @Email(message = "Invalid email. Try again.")
     private String contactEmail;
 
+    @NotNull(message = "Location is required")
+    @NotBlank(message = "Location is required")
+    private String location;
+//    @NotEmpty(message = "Must be selected")
+//    private Boolean isRegistrationRequired;
+    @Positive(message="Number of attendees must be one or more.")
+//    @NotBlank(message = "Number of Attendees is required!")
+    private Integer numAttendees;
 
-    public Event(String name, String description, String contactEmail) {
+    public Event(String name, String description, String contactEmail, String location, Integer numAttendees) {
+
         this.name = name;
         this.description = description;
-        this.id = nextId;
-        nextId++;
+        this.contactEmail = contactEmail;
+        this.location = location;
+//        this.isRegistrationRequired = isRegistrationRequired;
+        this.numAttendees = numAttendees;
+
     }
 
     public Event() {
-
     }
     public int getId() {
         return id;
     }
-=======
-
-    @NotBlank(message = "Email is required")
-    @Email(message = "Invalid email. Try again.")
-    private String contactEmail;
-
-    private EventType type;
-
-    public Event(String name, String description, String contactEmail, EventType type) {
-        this.name = name;
-        this.description = description;
-        this.contactEmail = contactEmail;
-        this.type = type;
-    }
-
-    public Event() {}
->>>>>>> origin/persistent-controller
 
     public String getName() {
         return name;
@@ -97,21 +73,30 @@ public class Event {
         this.contactEmail = contactEmail;
     }
 
-<<<<<<< HEAD
-=======
-    public EventType getType() {
-        return type;
+    public String getLocation() {
+        return location;
     }
 
-    public void setType(EventType type) {
-        this.type = type;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public int getId() {
-        return id;
+    public Integer getNumAttendees() {
+        return numAttendees;
     }
 
->>>>>>> origin/persistent-controller
+    public void setNumAttendees(int numAttendees) {
+        this.numAttendees = numAttendees;
+    }
+
+//    public Boolean getIsRegistrationRequired() {
+//        return isRegistrationRequired;
+//    }
+//
+//    public void setIsRegistrationRequired(Boolean registrationRequired) {
+//        isRegistrationRequired = registrationRequired;
+//    }
+
     @Override
     public String toString() {
         return name;
