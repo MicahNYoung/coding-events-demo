@@ -9,25 +9,53 @@
     <div class="form-group">
         <label>Name
             <input th:field="${event.name}" class="form-control">
+<<<<<<< HEAD
             <p class="error" th:errors="${event.name}"></p>
         </label>
+=======
+        </label>
+        <p class="error" th:errors="${event.name}"></p>
+>>>>>>> origin/persistent-controller
     </div>
     <div class="form-group">
         <label>Description
             <input th:field="${event.description}" class="form-control">
+<<<<<<< HEAD
             <p class="error" th:errors="${event.description}"></p>
 
         </label>
+=======
+        </label>
+        <p class="error" th:errors="${event.description}"></p>
+>>>>>>> origin/persistent-controller
     </div>
     <div class="form-group">
         <label>Contact Email
             <input th:field="${event.contactEmail}" class="form-control">
+<<<<<<< HEAD
             <p class="error" th:errors="${event.contactEmail}"></p>
 
         </label>
     </div>
     <div class="form-group">
             <input type="submit" value="Create" class="btn btn-success">
+=======
+        </label>
+        <p class="error" th:errors="${event.contactEmail}"></p>
+    </div>
+    <div class="form-group">
+        <label>Type
+        <select th:field="${event.type}">
+            <option th:each="type : ${types}"
+                    th:value="${type}"
+                    th:text="${type.displayName}"
+            ></option>
+        </select>
+        </label>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-success">
+>>>>>>> origin/persistent-controller
     </div>
 </form>
 
